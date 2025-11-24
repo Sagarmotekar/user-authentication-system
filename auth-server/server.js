@@ -2,9 +2,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import authRoutes from './routes/authRoutes.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 app.get("/", (req, res) => {
   res.send("Auth Server is Running...");
 });
@@ -12,7 +15,7 @@ app.get("/", (req, res) => {
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://sagar2004:sagar906794@sagarfirst.nfa023p.mongodb.net/authdb")
+mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log("MongoDB Connected"))
 .catch((err)=>console.log(err));
 
