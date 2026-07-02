@@ -12,9 +12,9 @@ const port = process.env.PORT || 4000;
 // --- UPDATED CORS CONFIGURATION ---
 // Add your local frontend URL and your deployed frontend URL here
 const allowedOrigins = [
-  'http://localhost:5173', // Default Vite local port
-  'http://localhost:3000', // Default React local port
-  // 'https://your-frontend.vercel.app' // <-- ADD YOUR DEPLOYED FRONTEND URL HERE LATER
+  'http://localhost:5173', 
+  'http://localhost:3000',
+  'https://user-authentication-system-psi.vercel.app/' // <-- ADD YOUR VERCEL URL HERE
 ];
 
 app.use(cors({
