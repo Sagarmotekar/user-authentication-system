@@ -5,6 +5,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
+// 1. ADD THIS: Get the API URL from your .env file
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -14,12 +16,13 @@ const Login = () => {
         password: ""
     });
 
-
     const submit = async (e) => {
         e.preventDefault();
-        const res = await axios.post("http://localhost:4000/auth/login", data);
+        
+        // 2. CHANGE THIS: Use ${API_URL} instead of the hardcoded localhost string
+        const res = await axios.post(`${API_URL}/auth/login`, data);
+        
         if (res.data.success) {
-
             login(res.data.token, res.data.userName);
             alert("login successful");
             navigate("/dashboard");
@@ -28,8 +31,6 @@ const Login = () => {
             alert(res.data.message)
         }
     }
-
-
 
     return (
         <div className='login-container'>
@@ -47,7 +48,6 @@ const Login = () => {
                     <p>Don't have an account? <a href="/signup">Sign Up</a></p>
                 </div>
             </div>
-
         </div>
     )
 }

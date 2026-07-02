@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 
+// 1. ADD THIS: Get the API URL from your .env file
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Signup = () => {
   const [data, setData] = useState({
     name: "",
@@ -11,9 +14,13 @@ const Signup = () => {
     password: ""
   });
   const navigate = useNavigate();
+  
   const submit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:4000/auth/signup", data)
+    
+    // 2. CHANGE THIS: Use ${API_URL} instead of the hardcoded localhost string
+    const res = await axios.post(`${API_URL}/auth/signup`, data)
+    
     alert(res.data.message)
     navigate("/")
   }
