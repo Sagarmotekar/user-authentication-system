@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate, Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 import axios from 'axios';
@@ -45,7 +46,7 @@ const Login = () => {
                     <button>Login</button>
                 </form>
                 <div>
-                    <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+                    <p>Don't have an account? <link href="/signup">Sign Up</link></p>
                 </div>
             </div>
         </div>

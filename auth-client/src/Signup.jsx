@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css';
+import { useNavigate, Link } from 'react-router-dom';
 
 // 1. ADD THIS: Get the API URL from your .env file
 const API_URL = import.meta.env.VITE_API_URL;
@@ -40,7 +41,7 @@ const Signup = () => {
 
         </form>
         <div>
-          <p>Already have an account? <a href="/">Login</a></p>
+          <p>Already have an account? <link href="/">Login</link></p>
         </div>
       </div>
     </div>
