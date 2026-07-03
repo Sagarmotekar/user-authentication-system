@@ -11,23 +11,15 @@ const port = process.env.PORT || 4000;
 
 // --- UPDATED CORS CONFIGURATION ---
 // Add your local frontend URL and your deployed frontend URL here
-const allowedOrigins = [
-  'http://localhost:5173', 
-  'http://localhost:3000',
-  'https://user-authentication-system-psi.vercel.app/' // <-- ADD YOUR VERCEL URL HERE
-];
 
+// Replace your current cors block with this exact code:
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, Postman)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  credentials: true // Important if you ever use cookies/sessions
+  origin: [
+    'http://localhost:5173', 
+    'http://localhost:3000',
+    'https://user-authentication-system-psi.vercel.app' // <-- YOUR LIVE VERCEL URL
+  ],
+  credentials: true 
 }));
 // ----------------------------------
 
