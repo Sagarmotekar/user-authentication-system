@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 // 1. ADD THIS: Get the API URL from your .env file
@@ -46,7 +45,7 @@ const Login = () => {
                     <button>Login</button>
                 </form>
                 <div>
-                    <p>Don't have an account? <link href="/signup">Sign Up</link></p>
+                    <p>Don't have an account? <Link href="/signup">Sign Up</Link></p>
                 </div>
             </div>
         </div>
