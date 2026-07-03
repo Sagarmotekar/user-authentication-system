@@ -10,9 +10,9 @@ const userSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    password:{
+        password:{
         type:String,
-        required:true
-    }
+        // Remove 'required: true' so Google users can be saved without a password
+    },
 });
 export default mongoose.model("User",userSchema);
