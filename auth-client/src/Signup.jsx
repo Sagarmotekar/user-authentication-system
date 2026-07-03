@@ -30,7 +30,7 @@ const Signup = () => {
         
         // Check if the backend actually succeeded
         if (res.data.success) {
-            console.log("6. Signup successful! Navigating to login...");
+             alert("Sign Up successful");
             navigate("/");
         } else {
             console.log("6. Backend said failed:", res.data.message);
