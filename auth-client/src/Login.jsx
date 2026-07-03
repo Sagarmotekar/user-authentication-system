@@ -18,10 +18,10 @@ const Login = () => {
 
     const submit = async (e) => {
         e.preventDefault();
-        
+
         // 2. CHANGE THIS: Use ${API_URL} instead of the hardcoded localhost string
         const res = await axios.post(`${API_URL}/auth/login`, data);
-        
+
         if (res.data.success) {
             login(res.data.token, res.data.userName);
             alert("login successful");
@@ -45,7 +45,7 @@ const Login = () => {
                     <button>Login</button>
                 </form>
                 <div>
-                    <p>Don't have an account? <Link href="/signup">Sign Up</Link></p>
+                    <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
                 </div>
             </div>
         </div>
